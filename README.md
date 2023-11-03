@@ -2,7 +2,7 @@
 
 [*UC Davis DataLab*](https://datalab.ucdavis.edu/)\
 *Fall 2023*\
-*Instructor: Elise Hellwig \<[echellwig@ucdavis.edu](mailto:echellwigL@ucdavis.edu){.email}\>*\
+*Instructor: Elise Hellwig [echellwig@ucdavis.edu](mailto:echellwigL@ucdavis.edu)*\
 
 -   [Reader](https://d-rug.github.io/debugging_in_R/)
 
