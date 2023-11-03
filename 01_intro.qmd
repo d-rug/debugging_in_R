@@ -13,9 +13,12 @@ But most of the time it is computer code that is not behaving as anticipated.
 
 1.  Identify the bug
 
-2.  Locate locate bug
+2.  Locate bug
+
+3.  Reproduce the bug
 
 3.  Fix the bug
 
 4.  Prevent prevent bug
 
+Not all of these steps will be relevant every time but some of them will always be relevant and sometimes you will need all of them
