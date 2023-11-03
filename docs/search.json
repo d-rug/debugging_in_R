@@ -33,5 +33,19 @@
     "title": "Example",
     "section": "Running Code",
     "text": "Running Code\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n1 + 1\n\n[1] 2\n\n\nYou can add options to executable code like this\n\n\n[1] 4\n\n\nThe echo: false option disables the printing of code (only output is displayed)."
+  },
+  {
+    "objectID": "01_intro.html#what-is-a-bug",
+    "href": "01_intro.html#what-is-a-bug",
+    "title": "Introduction",
+    "section": "What is a bug?",
+    "text": "What is a bug?\nSometimes it’s a real bug:\nBut most of the time it is computer code that is not behaving as anticipated."
+  },
+  {
+    "objectID": "01_intro.html#debugging-tasks",
+    "href": "01_intro.html#debugging-tasks",
+    "title": "Introduction",
+    "section": "Debugging Tasks",
+    "text": "Debugging Tasks\n\nIdentify the bug\nLocate locate bug\nFix the bug\nPrevent prevent bug"
   }
 ]
