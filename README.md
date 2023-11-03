@@ -38,7 +38,7 @@ Once you've cloned the repo, here's a checklist of things to do to prepare the r
 *Fall 2023*\
 *Instructor: Elise Hellwig \<[echellwig@ucdavis.edu](mailto:echellwigL@ucdavis.edu){.email}\>*\
 
--   [Reader](https://ucdavisdatalab.github.io/debugging_in_R/)
+-   [Reader](https://d-rug.github.io/debugging_in_R/)
 
 YOUR DESCRIPTION, LEARNING GOALS, PREREQUISITES, ETC
 
