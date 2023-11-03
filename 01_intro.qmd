@@ -3,23 +3,19 @@ title: "Introduction"
 format: html
 ---
 
-## Quarto
+## What is a bug?
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+Sometimes it's a real bug:
 
-## Running Code
+But most of the time it is computer code that is not behaving as anticipated.
 
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+## Debugging Tasks
 
-```{r}
-1 + 1
-```
+1.  Identify the bug
 
-You can add options to executable code like this 
+2.  Locate locate bug
 
-```{r}
-#| echo: false
-2 * 2
-```
+3.  Fix the bug
 
-The `echo: false` option disables the printing of code (only output is displayed).
+4.  Prevent prevent bug
+
