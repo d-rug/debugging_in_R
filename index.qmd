@@ -8,3 +8,5 @@ format:
 # Overview {.unnumbered}
 
 This mini-workshop will cover the primary tools R provides to identify and fix problems in your code. It will also discuss when to use each and give you some hands on practice.
+
+**Workshop site: `http://d-rug.github.io/debugging_in_R`**
