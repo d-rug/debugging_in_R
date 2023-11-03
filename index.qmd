@@ -7,4 +7,4 @@ format:
 
 # Overview {.unnumbered}
 
-YOUR DESCRIPTION, LEARNING GOALS, PREREQUISITES, ETC
+This mini-workshop will cover the primary tools R provides to identify and fix problems in your code. It will also discuss when to use each and give you some hands on practice.
