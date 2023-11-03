@@ -1,11 +1,5 @@
 # Quarto Template: Workshop Reader
 
-This repository is a `Quarto` based template for workshop readers for the UC Davis DataLab.
-
-This template uses [**quarto**](https://quarto.org/) to knit the reader. You can also optionally use **renv** to manage packages and Git Large File Storage to manage large files (instructions included).
-
-To get started, create a new repo on GitHub from this template ([instructions](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template)), then `git clone` your new repo.
-
 Once you've cloned the repo, here's a checklist of things to do to prepare the repo:
 
 2.  `index.qmd` and `_quarto.yml`: Replace the all-caps text with your workshop details.
@@ -14,17 +8,6 @@ Once you've cloned the repo, here's a checklist of things to do to prepare the r
     -   Author's name
     -   Repo name (in 4 places, 2 of them in the `output:` HTML block)
     -   Description, learning goals, & prerequisites
-
-3.  `README.md`: Replace the all-caps text with your workshop details.
-
-    -   Title
-    -   Quarter & year
-    -   Author's name & email
-    -   Reader URL
-    -   Event URL
-    -   Description, learning goals, & prerequisites
-
-4.  GitHub: In the repo's About section, add the reader URL and appropriate tags.
 
 5.  GitHub: In the repo's Settings page, enable GitHub pages. Set the branch to `main` and the directory to `docs/`.
 
