@@ -1,21 +1,4 @@
-# Quarto Template: Workshop Reader
-
-Once you've cloned the repo, here's a checklist of things to do to prepare the repo:
-
-2.  `index.qmd` and `_quarto.yml`: Replace the all-caps text with your workshop details.
-
-    -   Title
-    -   Author's name
-    -   Repo name (in 4 places, 2 of them in the `output:` HTML block)
-    -   Description, learning goals, & prerequisites
-
-5.  GitHub: In the repo's Settings page, enable GitHub pages. Set the branch to `main` and the directory to `docs/`.
-
-6.  `README.md`: Remove these template instructions, which end at the `#    Workshop:` header below
-
-7.  `git add` all changed files, then `git commit` and `git push`.
-
-# Workshop: YOUR WORKSHOP TITLE
+# Workshop: Debugging in R
 
 [*UC Davis DataLab*](https://datalab.ucdavis.edu/)\
 *Fall 2023*\
