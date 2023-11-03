@@ -8,21 +8,6 @@ To get started, create a new repo on GitHub from this template ([instructions](h
 
 Once you've cloned the repo, here's a checklist of things to do to prepare the repo:
 
-1.  **renv** (optional): To set up **renv**, open R at the top level of the repo and run:
-
-    ``` r
-    renv::init()
-    ```
-
-    Restart R. Then, install packages required for project or presentation. Finally, run:
-
-    ``` r
-    install.packages(YOUR PACKAGES HERE)
-    renv::snapshot()
-    ```
-
-    You can skip this step if you're not going to use **renv**.
-
 2.  `index.qmd` and `_quarto.yml`: Replace the all-caps text with your workshop details.
 
     -   Title
@@ -50,12 +35,10 @@ Once you've cloned the repo, here's a checklist of things to do to prepare the r
 # Workshop: YOUR WORKSHOP TITLE
 
 [*UC Davis DataLab*](https://datalab.ucdavis.edu/)\
-*QUARTER YEAR*\
-*Instructor: YOUR NAME \<[YOUR_EMAIL\@ucdavis.edu](mailto:YOUR_EMAIL@ucdavis.edu){.email}\>*\
-*Maintainer: MAINTAINER'S NAME \<[MAINTAINER_EMAIL\@ucdavis.edu](mailto:MAINTAINER_EMAIL@ucdavis.edu){.email}\>*
+*Fall 2023*\
+*Instructor: Elise Hellwig \<[echellwig@ucdavis.edu](mailto:echellwigL@ucdavis.edu){.email}\>*\
 
--   [Reader](https://ucdavisdatalab.github.io/YOUR_REPOSITORY/)
--   [Event Page](https://datalab.ucdavis.edu/eventscalendar/YOUR_EVENT/)
+-   [Reader](https://ucdavisdatalab.github.io/debugging_in_R/)
 
 YOUR DESCRIPTION, LEARNING GOALS, PREREQUISITES, ETC
 
