@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "YOUR WORKSHOP TITLE",
+    "title": "Debugging in R",
     "section": "",
-    "text": "Overview\nYOUR DESCRIPTION, LEARNING GOALS, PREREQUISITES, ETC"
+    "text": "Overview\nThis mini-workshop will cover the primary tools R provides to identify and fix problems in your code. It will also discuss when to use each and give you some hands on practice.\nWorkshop site: http://d-rug.github.io/debugging_in_R"
   },
   {
     "objectID": "01_intro.html#quarto",
