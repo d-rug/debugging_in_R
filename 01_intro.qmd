@@ -7,18 +7,21 @@ format: html
 
 Sometimes it's a real bug:
 
-But most of the time it is computer code that is not behaving as anticipated.
+But most of the time it is computer code that did not produce the output you 
+anticipated.
 
 ## Debugging Tasks
 
 1.  Identify the bug
 
-2.  Locate bug
+2.  Locate (the cause of) the bug
 
-3.  Reproduce the bug
+3. Search for the bg
 
-3.  Fix the bug
+4.  Reproduce the bug
 
-4.  Prevent prevent bug
+5.  Fix the bug
+
+6.  Prevent prevent bug
 
 Not all of these steps will be relevant every time but some of them will always be relevant and sometimes you will need all of them
