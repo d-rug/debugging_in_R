@@ -39,13 +39,55 @@
     "href": "01_intro.html#what-is-a-bug",
     "title": "Introduction",
     "section": "What is a bug?",
-    "text": "What is a bug?\nSometimes it’s a real bug:\nBut most of the time it is computer code that is not behaving as anticipated."
+    "text": "What is a bug?\nSometimes it’s a real bug:\nBut most of the time it is computer code that did not produce the output you anticipated."
   },
   {
     "objectID": "01_intro.html#debugging-tasks",
     "href": "01_intro.html#debugging-tasks",
     "title": "Introduction",
     "section": "Debugging Tasks",
-    "text": "Debugging Tasks\n\nIdentify the bug\nLocate locate bug\nFix the bug\nPrevent prevent bug"
+    "text": "Debugging Tasks\n\nIdentify the bug\nLocate (the cause of) the bug\nSearch for the bg\nReproduce the bug\nFix the bug\nPrevent prevent bug\n\nNot all of these steps will be relevant every time but some of them will always be relevant and sometimes you will need all of them"
+  },
+  {
+    "objectID": "02_tasks.html#identify-the-bug",
+    "href": "02_tasks.html#identify-the-bug",
+    "title": "Tasks",
+    "section": "1. Identify The Bug",
+    "text": "1. Identify The Bug\nKnowing you have a bug is the first step.\nIf you have an error message, this step is taken care of for you:\n\nx = c(1, 39, 2982, '5', 22)\n\nsqrt(x)\n\nError in sqrt(x): non-numeric argument to mathematical function\n\n\nHowever, many times there will be no error messages, you just have to figure out that something isn’t right.\n\nx = c(1, 39, 2982, '5', 22)\n\nrange(x)\n\n[1] \"1\" \"5\"\n\n\n\nStrategies\nDevelop expectations about what your data should look like and check them frequently, not just at the end of your process.\n\nInvestigative functions\n\nprint()\nhead()\nstr()\nView()\nrange()\ntable()\n\n\n\nUnit tests\nUnit tests are outside the scope of this workshop but you can find more information via the testthat package.\n\n\n\nCommon Problems\n\nTypos/syntax errors\nObject is not the class that you think it is\nVariable is not the type that you think it is\nVariables missing from data\nMissing values (NAs) in the data"
+  },
+  {
+    "objectID": "02_tasks.html#reproduce-the-bug",
+    "href": "02_tasks.html#reproduce-the-bug",
+    "title": "Tasks",
+    "section": "Reproduce the Bug",
+    "text": "Reproduce the Bug\nWhen posting to\n\nReprexes\nReproducible examples, or reprexes are snippets of code that can be run by anyone, without any specialized data or software. Many times, the act of creating a reprex will help you debug your code.\nRemember to: - Create the reprex in a new script - include all packages loaded in your environment - simulate data or provide an easily accessible small subset of your data - remove all extraneous code, like calls to print() and head() - test your reprex to make sure it triggers the error - clear your environment/restart R before testing your reprex"
+  },
+  {
+    "objectID": "02_tasks.html#locate-the-bug",
+    "href": "02_tasks.html#locate-the-bug",
+    "title": "Tasks",
+    "section": "Locate the Bug",
+    "text": "Locate the Bug\n\nStart debugging with an empty environment\nRun script interactively in the console and use investigative functions\nprint debugging\ndebug() and debugonce()\nbrowser() (+ trace())\nFor rmarkdown/quarto\n\nbreak up larger chunks into smaller ones\nrun code in console\n\n\nSometimes simply locating the bug is enough to figure out how to solve it, like in the case of syntax errors. However, many times locating the bug is just the beginning…"
+  },
+  {
+    "objectID": "02_tasks.html",
+    "href": "02_tasks.html",
+    "title": "Tasks",
+    "section": "",
+    "text": "1. Identify The Bug\nKnowing you have a bug is the first step.\nIf you have an error message, this step is taken care of for you:\n\nx = c(1, 39, 2982, '5', 22)\n\nsqrt(x)\n\nError in sqrt(x): non-numeric argument to mathematical function\n\n\nHowever, many times there will be no error messages, you just have to figure out that something isn’t right.\n\nx = c(1, 39, 2982, '5', 22)\n\nrange(x)\n\n[1] \"1\" \"5\"\n\n\n\nStrategies\nDevelop expectations about what your data should look like and check them frequently, not just at the end of your process.\n\nInvestigative functions\n\nprint()\nhead()\nstr()\nView()\nrange()\ntable()\n\n\n\nUnit tests\nUnit tests are outside the scope of this workshop but you can find more information via the testthat package.\n\n\n\nCommon Problems\n\nTypos/syntax errors\nObject is not the class that you think it is\nVariable is not the type that you think it is\nVariables missing from data\nMissing values (NAs) in the data\n\n\n\n\n2. Locate the Bug\n\nStart debugging with an empty environment\nRun script interactively in the console and use investigative functions\nprint debugging\ndebug() and debugonce()\nbrowser() (+ trace())\nFor rmarkdown/quarto\n\nbreak up larger chunks into smaller ones\nrun code in console\n\n\nSometimes simply locating the bug is enough to figure out how to solve it, like in the case of syntax errors. However, many times locating the bug is just the beginning…\n\n\n3. Search for the bug\nWhen identifying the location of the bug is not enough to figure out how to fix it, it’s time to go looking for help.\n\nBuilt-in R documentation via ? or help()\nRDocumentation.org\nThe CRAN page or Github repository for a specific package\nGoogle\n\nTips for googling:\n\nCopy/paste error messages\nInclude “R” and names of any packages you are using\nSpecify the function you think may be causing the problem\nMention the data type/class you are working with\n\n\n\n4. Reproduce the Bug\nSometimes though, Google doesn’t doesn’t even know what you are talking about. In this case, your best option is to get proactive and ask for help. You can do this through any number of forums, including but not limited to:\n\nD-RUG Discourse\nStackOverflow\nR-help mailing list\nRStudio Forum\nThe Github repository for a specific package\n\nWhenever you ask for help, important that you provide people all the information they need to understand the problem, but not so much information that that determining the problem becomes a slog. Enter the Reprex.\nWhen asking your question make sure you:\n\nHave done your homework and exhausted your options from Step 3 first\nUse a clear and concise title\nDescribe your goal, what you expected to happen, and what actually happened\nCopy/paste output from sessionInfo() into your post\nInclude a reprex\n\n\nReprexes\nRepr(oducible) ex(amples), are snippets of code that can be run by anyone, without any specialized data or software. Many times, the act of creating a reprex will help you debug your code.\nRemember to:\n\nCreate the reprex in a new script\nList all packages loaded in your environment\nSimulate data or provide an easily accessible small subset of your data\nRemove all extraneous code, like calls to print() and head()\nClear your environment/restart R before testing your reprex\nTest your reprex to make sure it triggers the error\n\nFor more detailed guidance asking good questions see the R Posting Guide\n\n\n\n5. Fix the Bug?\nSometimes fixing the bug is trivial once you have determined the cause. Other times, there is more work to do.\n\nUse trace() to modify problematic functions\nWrite your own functions that avoid the issue\nReport the bug\n\npackageDescription() to find bug report location\noften times this is done by creating an issue on Github\nMake sure that the problem is actually a bug and not just a behavior you don’t like\n\n\nFor more information on reporting bugs in R see the Reporting Bugs in R page on CRAN.\n\n\n6. Pevent the Bug\n\nDocument, document, document!\n\n#comments\nREADMEs\ncommit messages\nGithub Issues\n\nWrite your own error messages using stop() or warnings using warning()\nFollow up on any posts you made with the solution that actually worked"
+  },
+  {
+    "objectID": "02_tasks.html#fix-the-bug",
+    "href": "02_tasks.html#fix-the-bug",
+    "title": "Tasks",
+    "section": "Fix the Bug",
+    "text": "Fix the Bug"
+  },
+  {
+    "objectID": "02_tasks.html#pevent-the-bug",
+    "href": "02_tasks.html#pevent-the-bug",
+    "title": "Tasks",
+    "section": "Pevent the Bug",
+    "text": "Pevent the Bug\n\nDocument, document, document!\ncomments\nREADMEs\ncommit messages\nWrite your own error messages using stop() or warnings using warning()"
   }
 ]
