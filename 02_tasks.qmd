@@ -1,25 +1,156 @@
 ---
-title: "Example"
+title: "Tasks"
 format: html
 ---
 
-## Quarto
+# 1. Identify The Bug
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+Knowing you have a bug is the first step.
 
-## Running Code
+If you have an error message, this step is taken care of for you:
 
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+```{r error=TRUE}
 
-```{r}
-1 + 1
+x = c(1, 39, 2982, '5', 22)
+
+sqrt(x)
+
 ```
 
-You can add options to executable code like this 
+However, many times there will be no error messages, you just have to figure out that something isn't right.
 
-```{r}
-#| echo: false
-2 * 2
+```{r error=TRUE}
+
+x = c(1, 39, 2982, '5', 22)
+
+range(x)
+
 ```
 
-The `echo: false` option disables the printing of code (only output is displayed).
+### Strategies
+
+Develop expectations about what your data should look like and check them frequently, not just at the end of your process.
+
+#### Investigative functions
+
+-   `print()`
+-   `head()`
+-   `str()`
+-   `View()`
+-   `range()`
+-   `table()`
+    
+#### Unit tests
+
+Unit tests are outside the scope of this workshop but you can find more information via the [testthat](https://testthat.r-lib.org/) package.
+
+### Common Problems
+-   Typos/syntax errors
+-   Object is not the class that you think it is
+-   Variable is not the type that you think it is
+-   Variables missing from data
+-   Missing values (NAs) in the data 
+
+# 2. Locate the Bug
+
+- Start debugging with an empty environment
+- Run script interactively in the console and use investigative functions
+- print debugging
+- `debug()` and `debugonce()` 
+- `browser()` (+ `trace()`)
+- For rmarkdown/quarto
+  - break up larger chunks into smaller ones
+  - run code in console
+  
+Sometimes simply locating the bug is enough to figure out how to solve it, like
+in the case of syntax errors. However, many times locating the bug is just the beginning...
+
+# 3. Search for the bug
+
+When identifying the location of the bug is not enough to figure out how to fix
+it, it's time to go looking for help.
+
+-   Built-in R documentation via `?` or `help()`
+-   [RDocumentation.org](https://www.rdocumentation.org/)
+-   The [CRAN](https://cran.r-project.org/) page or [Github](https://github.com/) repository for a specific package
+-   Google
+
+Tips for googling:
+
+-   Copy/paste error messages
+-   Include "R" and names of any packages you are using
+-   Specify the function you think may be causing the problem
+-   Mention the data type/class you are working with 
+
+# 4. Reproduce the Bug
+
+Sometimes though, Google doesn't doesn't even know what you are talking about. 
+In this case, your best option is to get proactive and ask for help. You can do
+this through any number of forums, including but not limited to:
+
+-   [D-RUG Discourse](https://d-rug.discourse.group/top?period=all)
+-   [StackOverflow](https://stackoverflow.com/questions/tagged/r)
+-   [R-help mailing list](https://stat.ethz.ch/mailman/listinfo/r-help)
+-   [RStudio Forum](https://community.rstudio.com/)
+-   The [Github](https://github.com/) repository for a specific package
+
+
+Whenever you ask for help, important that you provide people all the information 
+they need to understand the problem, but not so much information that that 
+determining the problem becomes a slog. Enter the Reprex.
+
+When asking your question make sure you:
+
+-   Have done your homework and exhausted your options from Step 3 first
+-   Use a clear and concise title
+-   Describe your goal, what you expected to happen, and what actually happened
+-   Copy/paste output from `sessionInfo()` into your post
+-   Include a reprex
+
+### Reprexes 
+
+Repr(oducible) ex(amples), are snippets of code that can be run by anyone, without any specialized data or software. Many times, the act of creating a reprex will help you debug your code.
+
+Remember to:
+
+-   Create the reprex in a new script
+-   List all packages loaded in your environment
+-   Simulate data or provide an easily accessible small subset of your data
+-   Remove all extraneous code, like calls to `print()` and `head()`
+-   Clear your environment/restart R before testing your reprex
+-   Test your reprex to make sure it triggers the error
+
+
+For more detailed guidance asking good questions see the 
+[R Posting Guide](https://www.r-project.org/posting-guide.html)
+
+# 5. Fix the Bug?
+
+Sometimes fixing the bug is trivial once you have determined the cause. Other
+times, there is more work to do.
+
+-   Use `trace()` to modify problematic functions
+-   Write your own functions that avoid the issue
+-   Report the bug 
+    -   `packageDescription()` to find bug report location
+    -   often times this is done by creating an 
+    [issue](https://ucdavisdatalab.github.io/workshop_git_for_teams/opening-issues-and-making-changes.html) on Github
+    - Make sure that the problem is actually a bug and not just a behavior you 
+    don't like
+
+For more information on reporting bugs in R see the 
+[Reporting Bugs in R page](https://www.r-project.org/bugs.html) on CRAN.
+
+# 6. Pevent the Bug
+
+-   Document, document, document!
+    -   #comments
+    -   [READMEs](https://ucdavisdatalab.github.io/workshop_how-to-data-documentation/)
+    -   [commit messages](https://ucdavisdatalab.github.io/workshop_introduction_to_version_control/creating-your-first-repo.html#save-stage-commit)
+    -   [Github Issues](https://ucdavisdatalab.github.io/workshop_git_for_teams/opening-issues-and-making-changes.html)
+-   Write your own error messages using `stop()` or warnings using `warning()`
+-   Follow up on any posts you made with the solution that actually worked
+
+
+
+
