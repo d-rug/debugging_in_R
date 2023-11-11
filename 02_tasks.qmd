@@ -27,11 +27,11 @@ range(x)
 
 ```
 
-### Strategies
+## Strategies
 
 Develop expectations about what your data should look like and check them frequently, not just at the end of your process.
 
-#### Investigative functions
+### Investigative functions
 
 -   `print()`
 -   `head()`
@@ -40,11 +40,11 @@ Develop expectations about what your data should look like and check them freque
 -   `range()`
 -   `table()`
     
-#### Unit tests
+### Unit tests
 
 Unit tests are outside the scope of this workshop but you can find more information via the [testthat](https://testthat.r-lib.org/) package.
 
-### Common Problems
+## Common Problems
 -   Typos/syntax errors
 -   Object is not the class that you think it is
 -   Variable is not the type that you think it is
