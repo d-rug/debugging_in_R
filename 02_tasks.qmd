@@ -65,7 +65,7 @@ Unit tests are outside the scope of this workshop but you can find more informat
 Sometimes simply locating the bug is enough to figure out how to solve it, like
 in the case of syntax errors. However, many times locating the bug is just the beginning...
 
-# 3. Search for the bug
+# 3. Investigate the bug
 
 When identifying the location of the bug is not enough to figure out how to fix
 it, it's time to go looking for help.
