@@ -64,6 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./03_example.html" rel="next">
 <link href="./01_intro.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -154,6 +155,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <a href="./02_tasks.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Tasks</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_example.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introduction</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -166,11 +172,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#identify-the-bug" id="toc-identify-the-bug" class="nav-link active" data-scroll-target="#identify-the-bug">1. Identify The Bug</a>
   <ul class="collapse">
-  <li><a href="#strategies" id="toc-strategies" class="nav-link" data-scroll-target="#strategies">Strategies</a></li>
+  <li><a href="#strategies" id="toc-strategies" class="nav-link" data-scroll-target="#strategies">Strategies</a>
+  <ul class="collapse">
+  <li><a href="#investigative-functions" id="toc-investigative-functions" class="nav-link" data-scroll-target="#investigative-functions">Investigative functions</a></li>
+  <li><a href="#unit-tests" id="toc-unit-tests" class="nav-link" data-scroll-target="#unit-tests">Unit tests</a></li>
+  </ul></li>
   <li><a href="#common-problems" id="toc-common-problems" class="nav-link" data-scroll-target="#common-problems">Common Problems</a></li>
   </ul></li>
   <li><a href="#locate-the-bug" id="toc-locate-the-bug" class="nav-link" data-scroll-target="#locate-the-bug">2. Locate the Bug</a></li>
-  <li><a href="#search-for-the-bug" id="toc-search-for-the-bug" class="nav-link" data-scroll-target="#search-for-the-bug">3. Search for the bug</a></li>
+  <li><a href="#investigate-the-bug" id="toc-investigate-the-bug" class="nav-link" data-scroll-target="#investigate-the-bug">3. Investigate the bug</a></li>
   <li><a href="#reproduce-the-bug" id="toc-reproduce-the-bug" class="nav-link" data-scroll-target="#reproduce-the-bug">4. Reproduce the Bug</a>
   <ul class="collapse">
   <li><a href="#reprexes" id="toc-reprexes" class="nav-link" data-scroll-target="#reprexes">Reprexes</a></li>
@@ -221,11 +231,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] "1" "5"</code></pre>
 </div>
 </div>
-<section id="strategies" class="level3">
-<h3 class="anchored" data-anchor-id="strategies">Strategies</h3>
+<section id="strategies" class="level2">
+<h2 class="anchored" data-anchor-id="strategies">Strategies</h2>
 <p>Develop expectations about what your data should look like and check them frequently, not just at the end of your process.</p>
-<section id="investigative-functions" class="level4">
-<h4 class="anchored" data-anchor-id="investigative-functions">Investigative functions</h4>
+<section id="investigative-functions" class="level3">
+<h3 class="anchored" data-anchor-id="investigative-functions">Investigative functions</h3>
 <ul>
 <li><code>print()</code></li>
 <li><code>head()</code></li>
@@ -235,13 +245,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>table()</code></li>
 </ul>
 </section>
-<section id="unit-tests" class="level4">
-<h4 class="anchored" data-anchor-id="unit-tests">Unit tests</h4>
+<section id="unit-tests" class="level3">
+<h3 class="anchored" data-anchor-id="unit-tests">Unit tests</h3>
 <p>Unit tests are outside the scope of this workshop but you can find more information via the <a href="https://testthat.r-lib.org/">testthat</a> package.</p>
 </section>
 </section>
-<section id="common-problems" class="level3">
-<h3 class="anchored" data-anchor-id="common-problems">Common Problems</h3>
+<section id="common-problems" class="level2">
+<h2 class="anchored" data-anchor-id="common-problems">Common Problems</h2>
 <ul>
 <li>Typos/syntax errors</li>
 <li>Object is not the class that you think it is</li>
@@ -267,8 +277,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>Sometimes simply locating the bug is enough to figure out how to solve it, like in the case of syntax errors. However, many times locating the bug is just the beginning…</p>
 </section>
-<section id="search-for-the-bug" class="level1">
-<h1>3. Search for the bug</h1>
+<section id="investigate-the-bug" class="level1">
+<h1>3. Investigate the bug</h1>
 <p>When identifying the location of the bug is not enough to figure out how to fix it, it’s time to go looking for help.</p>
 <ul>
 <li>Built-in R documentation via <code>?</code> or <code>help()</code></li>
@@ -591,6 +601,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./03_example.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-title">Introduction</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
