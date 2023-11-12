@@ -7,8 +7,9 @@ format: html
 
 Sometimes it's a real bug:
 
-But most of the time it is computer code that did not produce the output you 
-anticipated.
+![](images/computer-bug.jpg){fig-alt="moth taped to notebook page with caption \"first case of bug being found\"" width="600"}
+
+But most of the time it is computer code that did not produce the output you anticipated.
 
 ## Debugging Tasks
 

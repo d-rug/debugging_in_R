@@ -39,7 +39,7 @@
     "href": "01_intro.html#what-is-a-bug",
     "title": "Introduction",
     "section": "What is a bug?",
-    "text": "What is a bug?\nSometimes it’s a real bug:\nBut most of the time it is computer code that did not produce the output you anticipated."
+    "text": "What is a bug?\nSometimes it’s a real bug:\n\nBut most of the time it is computer code that did not produce the output you anticipated."
   },
   {
     "objectID": "01_intro.html#debugging-tasks",
