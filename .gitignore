@@ -3,7 +3,7 @@
 .Rhistory
 .RData
 .Ruserdata
-wc*
+
 
 # README
 README.html
@@ -30,4 +30,6 @@ README.html
 *_cache/
 /env/
 
-
+# data
+wc*
+*odt
