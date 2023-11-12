@@ -1,0 +1,58 @@
+---
+title: "Debugging in R"
+author: "Elise Hellwig"
+format: revealjs
+editor: visual
+---
+
+# Workshop Site:
+
+<http://d-rug.github.io/debugging_in_R>
+
+# What is a bug?
+
+## Debugging Tasks
+
+1.  Identify the bug
+
+2.  Locate (the cause of) the bug
+
+3.  Investigate the bug
+
+4.  Reproduce the bug
+
+5.  Fix the bug
+
+6.  Prevent prevent bug
+
+## 1. Identify the bug
+
+First, create expectations:
+
+-   in your mind
+
+-   with unit tests ([testthat](https://testthat.r-lib.org/))
+
+Then, check those expectations (frequently)
+
+-   With investigative functions like `print()`, `head()`, `str()`, `View()`, 
+`range()`, `table()`, `class()`
+
+-   with unit tests ([testthat](https://testthat.r-lib.org/))
+
+## Common Problems
+-   Typos/syntax errors
+-   **Object is not the class that you think it is**
+-   Variable is not the type that you think it is
+-   Variables missing from data
+-   Missing values (NAs) in the data 
+
+## 2. Locate the bug
+
+## 3. Investigate the bug
+
+## 4. Reproduce the bug
+
+## 5. Fix the bug
+
+## 6. Prevent the bug
