@@ -357,47 +357,145 @@ Elise Hellwig
 <li><p>Prevent prevent bug</p></li>
 </ol>
 </section>
-<section id="identify-the-bug" class="slide level2">
-<h2>1. Identify the bug</h2>
+<section id="investigative-functions" class="slide level2">
+<h2>Investigative Functions</h2>
+<ul>
+<li><code>print()</code></li>
+<li><code>head()</code></li>
+<li><code>str()</code></li>
+<li><code>View()</code></li>
+<li><code>dim()</code></li>
+<li><code>range()</code></li>
+<li><code>table()</code></li>
+<li><code>class()</code></li>
+</ul>
+<div style="font-size: 150%;">
+<p>and many more…</p>
+</div>
+</section></section>
+<section>
+<section id="identify-the-bug" class="title-slide slide level1 center">
+<h1>1. Identify the bug</h1>
+<div style="font-size: 125%;">
 <p>First, create expectations:</p>
+</div>
 <ul>
 <li><p>in your mind</p></li>
 <li><p>with unit tests (<a href="https://testthat.r-lib.org/">testthat</a>)</p></li>
 </ul>
+<div style="font-size: 125%;">
 <p>Then, check those expectations (frequently)</p>
+</div>
 <ul>
-<li><p>With investigative functions like <code>print()</code>, <code>head()</code>, <code>str()</code>, <code>View()</code>, <code>range()</code>, <code>table()</code>, <code>class()</code></p></li>
+<li><p>With investigative functions</p></li>
 <li><p>with unit tests (<a href="https://testthat.r-lib.org/">testthat</a>)</p></li>
-</ul>
-</section>
-<section id="common-problems" class="slide level2">
-<h2>Common Problems</h2>
-<ul>
-<li>Typos/syntax errors</li>
-<li><strong>Object is not the class that you think it is</strong></li>
-<li>Variable is not the type that you think it is</li>
-<li>Variables missing from data</li>
-<li>Missing values (NAs) in the data</li>
 </ul>
 </section>
 <section id="locate-the-bug" class="slide level2">
 <h2>2. Locate the bug</h2>
+<ul>
+<li>Start debugging with an empty environment</li>
+<li>Run script interactively in the console and use investigative functions</li>
+<li>Breakpoints</li>
+<li>For functions:
+<ul>
+<li><code>debug()</code> and <code>debugonce()</code></li>
+<li><code>browser()</code> and <code>trace()</code></li>
+</ul></li>
+<li>For rmarkdown/quarto:
+<ul>
+<li>break up larger chunks into smaller ones</li>
+<li>run code in console</li>
+</ul></li>
+</ul>
 </section>
 <section id="investigate-the-bug" class="slide level2">
 <h2>3. Investigate the bug</h2>
+<ul>
+<li>Update R (or and relevant packages)</li>
+<li>Built-in R documentation via <code>?</code> or <code>help()</code></li>
+<li>The <a href="https://cran.r-project.org/">CRAN</a> page or <a href="https://github.com/">Github</a> repository for a specific package</li>
+<li>Google
+<ul>
+<li>Copy/paste error messages</li>
+<li>Include “R” and names of any packages you are using</li>
+<li>Specify the function you think may be causing the problem</li>
+<li>Mention the data type/class you are working with</li>
+</ul></li>
+</ul>
 </section>
-<section id="reproduce-the-bug" class="slide level2">
-<h2>4. Reproduce the bug</h2>
+<section id="reproduce-the-bug-aka-ask-for-help" class="slide level2">
+<h2>4. Reproduce the bug aka Ask for Help</h2>
+<ul>
+<li>Do your homework and exhaust your options from Step 3 first</li>
+<li>Use a clear and concise title</li>
+<li>Describe your goal, what you expected to happen, and what actually happened</li>
+<li>Copy/paste output from <code>sessionInfo()</code> into your post</li>
+<li>Include a reprex</li>
+</ul>
+</section>
+<section id="reprex-reproducible-example" class="slide level2">
+<h2>Reprex: Re(producible) Ex(ample)</h2>
+<div style="font-size: 90%;">
+<ul>
+<li>Create the reprex in a separate script</li>
+<li>List all packages loaded in your environment</li>
+<li>Simulate data or provide an easily accessible small subset of your data (no csvs)</li>
+<li>Remove all extraneous packages and code</li>
+<li>Clear your environment/restart R before testing your reprex</li>
+<li>Test your reprex to make sure it triggers the error</li>
+<li>No Screenshots!</li>
+</ul>
+</div>
+<p>Of course there is a tidyverse package for that: <a href="https://reprex.tidyverse.org/">reprex</a></p>
+</section>
+<section id="where-to-ask" class="slide level2">
+<h2>Where to ask?</h2>
+<ul>
+<li><a href="https://d-rug.discourse.group/top?period=all">D-RUG Discourse</a></li>
+<li><a href="https://stackoverflow.com/questions/tagged/r">StackOverflow</a></li>
+<li><a href="https://stat.ethz.ch/mailman/listinfo/r-help">R-help mailing list</a></li>
+<li><a href="https://community.rstudio.com/">RStudio Forum</a></li>
+<li>The <a href="https://github.com/">Github</a> repository for a specific package</li>
+<li><a href="https://datalab.ucdavis.edu/office-hours/">Datalab Office Hours</a></li>
+</ul>
 </section>
 <section id="fix-the-bug" class="slide level2">
 <h2>5. Fix the bug</h2>
+<ul>
+<li>Use <code>trace()</code> to modify problematic functions</li>
+<li>Write your own functions that avoid the issue</li>
+<li>Report the bug
+<ul>
+<li><code>packageDescription()</code> to find bug report location</li>
+<li>often times this is done by creating an <a href="https://ucdavisdatalab.github.io/workshop_git_for_teams/opening-issues-and-making-changes.html">issue</a> on Github</li>
+</ul></li>
+<li>Make sure that the problem is actually a bug and not just a behavior you don’t like</li>
+</ul>
 </section>
 <section id="prevent-the-bug" class="slide level2">
 <h2>6. Prevent the bug</h2>
+<ul>
+<li>Document, document, document!
+<ul>
+<li>#comments</li>
+<li><a href="https://ucdavisdatalab.github.io/workshop_how-to-data-documentation/">READMEs</a></li>
+<li><a href="https://ucdavisdatalab.github.io/workshop_introduction_to_version_control/creating-your-first-repo.html#save-stage-commit">commit messages</a></li>
+<li><a href="https://ucdavisdatalab.github.io/workshop_git_for_teams/opening-issues-and-making-changes.html">Github Issues</a></li>
+</ul></li>
+<li>Write your own error messages using <code>stop()</code> or warnings using <code>warning()</code></li>
+<li>Follow up on any posts you made with the solution that actually worked</li>
+</ul>
+</section></section>
+<section id="an-example" class="title-slide slide level1 center">
+<h1>An Example</h1>
+<div style="font-size: 125%;">
+<p>https://github.com/d-rug/debugging_in_R/blob/main/buggy_code.R</p>
+</div>
 <div class="footer footer-default">
 
 </div>
-</section></section>
+</section>
     </div>
   </div>
 
