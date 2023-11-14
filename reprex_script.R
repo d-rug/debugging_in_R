@@ -1,9 +1,9 @@
-# renv::init()
-# install.packages('terra')
-
-# sessionInfo()
+renv::init()
+install.packages('terra')
 
 library('terra')
+
+# sessionInfo()
 
 r <- rast(system.file("ex/elev.tif", package="terra"))
 
