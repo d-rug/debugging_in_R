@@ -25,34 +25,124 @@ editor: visual
 
 6.  Prevent prevent bug
 
-## 1. Identify the bug
+## Investigative Functions
+
+-   `print()`
+-   `head()`
+-   `str()`
+-   `View()`
+-   `dim()`
+-   `range()`
+-   `table()`
+-   `class()`
+
+::: {style="font-size: 150%;"}
+and many more...
+
+:::
+# 1. Identify the bug
+
+::: {style="font-size: 125%;"}
 
 First, create expectations:
+
+:::
 
 -   in your mind
 
 -   with unit tests ([testthat](https://testthat.r-lib.org/))
 
+::: {style="font-size: 125%;"}
+
 Then, check those expectations (frequently)
 
--   With investigative functions like `print()`, `head()`, `str()`, `View()`, 
-`range()`, `table()`, `class()`
+:::
+-   With investigative functions
 
 -   with unit tests ([testthat](https://testthat.r-lib.org/))
 
-## Common Problems
--   Typos/syntax errors
--   **Object is not the class that you think it is**
--   Variable is not the type that you think it is
--   Variables missing from data
--   Missing values (NAs) in the data 
 
 ## 2. Locate the bug
 
-## 3. Investigate the bug
+- Start debugging with an empty environment
+- Run script interactively in the console and use investigative functions
+- Breakpoints
+- For functions:
+  - `debug()` and `debugonce()` 
+  - `browser()` and `trace()`
+- For rmarkdown/quarto:
+  - break up larger chunks into smaller ones
+  - run code in console
 
-## 4. Reproduce the bug
+
+## 3. Investigate the bug 
+
+-   Update R (or and relevant packages)
+-   Built-in R documentation via `?` or `help()`
+-   The [CRAN](https://cran.r-project.org/) page or [Github](https://github.com/) repository for a specific package
+-   Google
+    -   Copy/paste error messages
+    -   Include "R" and names of any packages you are using
+    -   Specify the function you think may be causing the problem
+    -   Mention the data type/class you are working with 
+
+## 4. Reproduce the bug aka Ask for Help
+
+-   Do your homework and exhaust your options from Step 3 first
+-   Use a clear and concise title
+-   Describe your goal, what you expected to happen, and what actually happened
+-   Copy/paste output from `sessionInfo()` into your post
+-   Include a reprex
+
+## Reprex: Re(producible) Ex(ample)
+
+::: {style="font-size: 90%;"}
+-   Create the reprex in a separate script 
+-   List all packages loaded in your environment
+-   Simulate data or provide an easily accessible small subset of your data (no csvs)
+-   Remove all extraneous packages and code
+-   Clear your environment/restart R before testing your reprex
+-   Test your reprex to make sure it triggers the error
+-   No Screenshots!
+
+:::
+Of course there is a tidyverse package for that: [reprex](https://reprex.tidyverse.org/)
+
+## Where to ask?
+
+-   [D-RUG Discourse](https://d-rug.discourse.group/top?period=all)
+-   [StackOverflow](https://stackoverflow.com/questions/tagged/r)
+-   [R-help mailing list](https://stat.ethz.ch/mailman/listinfo/r-help)
+-   [RStudio Forum](https://community.rstudio.com/)
+-   The [Github](https://github.com/) repository for a specific package
+-   [Datalab Office Hours](https://datalab.ucdavis.edu/office-hours/)
+
 
 ## 5. Fix the bug
 
+-   Use `trace()` to modify problematic functions
+-   Write your own functions that avoid the issue
+-   Report the bug 
+    -   `packageDescription()` to find bug report location
+    -   often times this is done by creating an 
+    [issue](https://ucdavisdatalab.github.io/workshop_git_for_teams/opening-issues-and-making-changes.html) 
+    on Github
+- Make sure that the problem is actually a bug and not just a behavior you 
+    don't like
+
 ## 6. Prevent the bug
+
+-   Document, document, document!
+    -   #comments
+    -   [READMEs](https://ucdavisdatalab.github.io/workshop_how-to-data-documentation/)
+    -   [commit messages](https://ucdavisdatalab.github.io/workshop_introduction_to_version_control/creating-your-first-repo.html#save-stage-commit)
+    -   [Github Issues](https://ucdavisdatalab.github.io/workshop_git_for_teams/opening-issues-and-making-changes.html)
+-   Write your own error messages using `stop()` or warnings using `warning()`
+-   Follow up on any posts you made with the solution that actually worked
+
+# An Example
+
+::: {style="font-size: 125%;"}
+https://github.com/d-rug/debugging_in_R/blob/main/buggy_code.R
+:::
+
