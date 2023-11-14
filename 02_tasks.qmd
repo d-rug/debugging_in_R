@@ -47,9 +47,10 @@ Unit tests are outside the scope of this workshop but you can find more informat
 ## Common Problems
 -   Typos/syntax errors
 -   Object is not the class that you think it is
--   Variable is not the type that you think it is
--   Variables missing from data
+-   Column is not the type that you think it is
+-   Columns missing from data
 -   Missing values (NAs) in the data 
+-   Reused variable names
 
 # 2. Locate the Bug
 
@@ -113,12 +114,13 @@ Repr(oducible) ex(amples), are snippets of code that can be run by anyone, witho
 
 Remember to:
 
--   Create the reprex in a new script
--   List all packages loaded in your environment
+-   Create the reprex in a separate script (or project)
+-   List all necessary to run your code
 -   Simulate data or provide an easily accessible small subset of your data
 -   Remove all extraneous code, like calls to `print()` and `head()`
 -   Clear your environment/restart R before testing your reprex
 -   Test your reprex to make sure it triggers the error
+-   No Screenshots!
 
 
 For more detailed guidance asking good questions see the 
