@@ -102,7 +102,7 @@
     "href": "02_tasks.html#common-problems",
     "title": "Tasks",
     "section": "Common Problems",
-    "text": "Common Problems\n\nTypos/syntax errors\nObject is not the class that you think it is\nVariable is not the type that you think it is\nVariables missing from data\nMissing values (NAs) in the data"
+    "text": "Common Problems\n\nTypos/syntax errors\nObject is not the class that you think it is\nColumn is not the type that you think it is\nColumns missing from data\nMissing values (NAs) in the data\nReused variable names"
   },
   {
     "objectID": "03_example.html#what-is-a-bug",
