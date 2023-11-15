@@ -37,9 +37,11 @@ Develop expectations about what your data should look like and check them freque
 -   `head()`
 -   `str()`
 -   `View()`
+-   `dim()`
 -   `range()`
 -   `table()`
-    
+-   `class()`
+
 ### Unit tests
 
 Unit tests are outside the scope of this workshop but you can find more information via the [testthat](https://testthat.r-lib.org/) package.
@@ -110,28 +112,30 @@ When asking your question make sure you:
 
 ### Reprexes 
 
-Repr(oducible) ex(amples), are snippets of code that can be run by anyone, without any specialized data or software. Many times, the act of creating a reprex will help you debug your code.
+Repr(oducible) ex(amples), are *minimal* of code that trigger your bug and can be run by anyone, without any specialized data or software. Many times, the act of creating a reprex will help you debug your code.
 
 Remember to:
 
--   Create the reprex in a separate script (or project)
--   List all necessary to run your code
--   Simulate data or provide an easily accessible small subset of your data
--   Remove all extraneous code, like calls to `print()` and `head()`
+-   Create the reprex in a separate script
+-   List all packages loaded in your environment
+-   Simulate data, use builtin data or provide an easily accessible small subset of your data (no csvs)
+-   Remove all extraneous packages and code
 -   Clear your environment/restart R before testing your reprex
 -   Test your reprex to make sure it triggers the error
 -   No Screenshots!
 
 
-For more detailed guidance asking good questions see the 
-[R Posting Guide](https://www.r-project.org/posting-guide.html)
+For more detailed guidance on asking good questions see the 
+[R Posting Guide](https://www.r-project.org/posting-guide.html). For tools to 
+craft your reprex, there is a tidyverse package with the same name: 
+[reprex](https://reprex.tidyverse.org/)
 
 # 5. Fix the Bug?
 
 Sometimes fixing the bug is trivial once you have determined the cause. Other
 times, there is more work to do.
 
--   Use `trace()` to modify problematic functions
+-   `try()` and `tryCatch()`
 -   Write your own functions that avoid the issue
 -   Report the bug 
     -   `packageDescription()` to find bug report location
@@ -145,6 +149,7 @@ For more information on reporting bugs in R see the
 
 # 6. Pevent the Bug
 
+-   `try()` and `tryCatch()`
 -   Document, document, document!
     -   #comments
     -   [READMEs](https://ucdavisdatalab.github.io/workshop_how-to-data-documentation/)
