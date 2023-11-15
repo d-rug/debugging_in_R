@@ -3,6 +3,8 @@ title: "An Example"
 format: html
 ---
 
+# Example Buggy Code
+
 ```{r error=TRUE}
 # renv::init()
 # pkg_list = c('terra', 'geodata', 'ggplot2', 'tidyterra', 'rnaturalearth', 
@@ -260,4 +262,25 @@ pp
 
 
 ```
+
+# A Reprex of the Bug
+
+```{r error=TRUE}
+
+renv::init()
+install.packages('terra')
+
+library('terra')
+
+# sessionInfo()
+
+r <- rast(system.file("ex/elev.tif", package="terra"))
+
+r_ll = project(r, "EPSG:2169")
+
+
+
+
+```
+
 
