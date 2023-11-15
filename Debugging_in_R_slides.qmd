@@ -13,13 +13,14 @@ editor: visual
 
 ![](images/computer-bug.jpg){fig-alt="moth taped to notebook page with caption \"first case of bug being found\"" width="300"}
 
-
 ::: {style="font-size: 130%;"}
-
 Computer code not behaving as you *expect* it to
 :::
 
 ## Debugging Tasks
+
+::: {style="font-size: 120%;"}
+
 
 1.  Identify the bug
 
@@ -33,7 +34,10 @@ Computer code not behaving as you *expect* it to
 
 6.  Prevent prevent bug
 
+:::
+
 ## Investigative Functions
+
 
 ::: {style="font-size: 90%;"}
 -   `print()`
@@ -67,6 +71,34 @@ Then, check those expectations (frequently)
 -   With investigative functions
 
 -   with unit tests ([testthat](https://testthat.r-lib.org/))
+
+## Setting Expectations
+&nbsp;
+
+
+### Expect no error message:
+
+```{r echo=TRUE, error=TRUE}
+
+x = c(1, 39, 2982, '5', 22)
+
+sqrt(x)
+
+
+
+```
+
+&nbsp;
+
+### Expect numeric values:
+
+```{r echo=TRUE, error=TRUE}
+
+x = c(1, 39, 2982, '5', 22)
+
+range(x)
+
+```
 
 ## 2. Locate the bug
 
@@ -103,6 +135,8 @@ Then, check those expectations (frequently)
 
 # Reprex: Re(producible) Ex(ample)
 
+&nbsp;
+
 ::: {style="font-size: 150%;"}
 The smallest chunk of code that triggers your bug and can be run on any computer.
 :::
@@ -128,8 +162,7 @@ Of course there is a tidyverse package for that: [reprex](https://reprex.tidyver
 -   [R-help mailing list](https://stat.ethz.ch/mailman/listinfo/r-help)
 -   [RStudio Forum](https://community.rstudio.com/)
 -   The [Github](https://github.com/) repository for a specific package
--   [Datalab Office Hours](https://datalab.ucdavis.edu/office-hours/) if you are
-associated with the University or Medical Center
+-   [Datalab Office Hours](https://datalab.ucdavis.edu/office-hours/) if you are associated with the University or Medical Center
 
 ## 5. Fix the bug
 
@@ -154,6 +187,7 @@ associated with the University or Medical Center
 :::
 
 # An Example
+&nbsp;
 
 ::: {style="font-size: 125%;"}
 https://github.com/d-rug/debugging_in_R/blob/main/buggy_code.R
