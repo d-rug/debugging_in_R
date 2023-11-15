@@ -11,6 +11,14 @@ editor: visual
 
 # What is a bug?
 
+![](images/computer-bug.jpg){fig-alt="moth taped to notebook page with caption \"first case of bug being found\"" width="300"}
+
+
+::: {style="font-size: 130%;"}
+
+Computer code not behaving as you *expect* it to
+:::
+
 ## Debugging Tasks
 
 1.  Identify the bug
@@ -27,6 +35,7 @@ editor: visual
 
 ## Investigative Functions
 
+::: {style="font-size: 90%;"}
 -   `print()`
 -   `head()`
 -   `str()`
@@ -35,17 +44,16 @@ editor: visual
 -   `range()`
 -   `table()`
 -   `class()`
+:::
 
 ::: {style="font-size: 150%;"}
 and many more...
-
 :::
+
 # 1. Identify the bug
 
 ::: {style="font-size: 125%;"}
-
 First, create expectations:
-
 :::
 
 -   in your mind
@@ -53,29 +61,28 @@ First, create expectations:
 -   with unit tests ([testthat](https://testthat.r-lib.org/))
 
 ::: {style="font-size: 125%;"}
-
 Then, check those expectations (frequently)
-
 :::
+
 -   With investigative functions
 
 -   with unit tests ([testthat](https://testthat.r-lib.org/))
 
-
 ## 2. Locate the bug
 
-- Start debugging with an empty environment
-- Run script interactively in the console and use investigative functions
-- Breakpoints
-- For functions:
-  - `debug()` and `debugonce()` 
-  - `browser()` and `trace()`
-- For rmarkdown/quarto:
-  - break up larger chunks into smaller ones
-  - run code in console
+::: {style="font-size: 90%;"}
+-   Start debugging with an empty environment
+-   Run script interactively in the console and use investigative functions
+-   Breakpoints
+-   For functions:
+    -   `debug()` and `debugonce()`
+    -   `browser()` and `trace()`
+-   For rmarkdown/quarto:
+    -   break up larger chunks into smaller ones
+    -   run code in console
+:::
 
-
-## 3. Investigate the bug 
+## 3. Investigate the bug
 
 -   Update R (or and relevant packages)
 -   Built-in R documentation via `?` or `help()`
@@ -84,7 +91,7 @@ Then, check those expectations (frequently)
     -   Copy/paste error messages
     -   Include "R" and names of any packages you are using
     -   Specify the function you think may be causing the problem
-    -   Mention the data type/class you are working with 
+    -   Mention the data type/class you are working with
 
 ## 4. Reproduce the bug aka Ask for Help
 
@@ -94,18 +101,24 @@ Then, check those expectations (frequently)
 -   Copy/paste output from `sessionInfo()` into your post
 -   Include a reprex
 
-## Reprex: Re(producible) Ex(ample)
+# Reprex: Re(producible) Ex(ample)
+
+::: {style="font-size: 150%;"}
+The smallest chunk of code that triggers your bug and can be run on any computer.
+:::
+
+## Reprex Tips
 
 ::: {style="font-size: 90%;"}
--   Create the reprex in a separate script 
+-   Create the reprex in a separate script
 -   List all packages loaded in your environment
--   Simulate data or provide an easily accessible small subset of your data (no csvs)
+-   Simulate data, use builtin data or provide an easily accessible small subset of your data (no csvs)
 -   Remove all extraneous packages and code
 -   Clear your environment/restart R before testing your reprex
 -   Test your reprex to make sure it triggers the error
 -   No Screenshots!
-
 :::
+
 Of course there is a tidyverse package for that: [reprex](https://reprex.tidyverse.org/)
 
 ## Where to ask?
@@ -117,21 +130,19 @@ Of course there is a tidyverse package for that: [reprex](https://reprex.tidyver
 -   The [Github](https://github.com/) repository for a specific package
 -   [Datalab Office Hours](https://datalab.ucdavis.edu/office-hours/)
 
-
 ## 5. Fix the bug
 
--   Use `trace()` to modify problematic functions
+-   `try()` and `tryCatch()`
 -   Write your own functions that avoid the issue
--   Report the bug 
+-   Report the bug
     -   `packageDescription()` to find bug report location
-    -   often times this is done by creating an 
-    [issue](https://ucdavisdatalab.github.io/workshop_git_for_teams/opening-issues-and-making-changes.html) 
-    on Github
-- Make sure that the problem is actually a bug and not just a behavior you 
-    don't like
+    -   often times this is done by creating an [issue](https://ucdavisdatalab.github.io/workshop_git_for_teams/opening-issues-and-making-changes.html) on Github
+-   Make sure that the problem is actually a bug and not just a behavior you don't like
 
 ## 6. Prevent the bug
 
+::: {style="font-size: 90%;"}
+-   `try()` and `tryCatch()`
 -   Document, document, document!
     -   #comments
     -   [READMEs](https://ucdavisdatalab.github.io/workshop_how-to-data-documentation/)
@@ -139,10 +150,10 @@ Of course there is a tidyverse package for that: [reprex](https://reprex.tidyver
     -   [Github Issues](https://ucdavisdatalab.github.io/workshop_git_for_teams/opening-issues-and-making-changes.html)
 -   Write your own error messages using `stop()` or warnings using `warning()`
 -   Follow up on any posts you made with the solution that actually worked
+:::
 
 # An Example
 
 ::: {style="font-size: 125%;"}
 https://github.com/d-rug/debugging_in_R/blob/main/buggy_code.R
 :::
-
