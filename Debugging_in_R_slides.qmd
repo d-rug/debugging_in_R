@@ -128,7 +128,8 @@ Of course there is a tidyverse package for that: [reprex](https://reprex.tidyver
 -   [R-help mailing list](https://stat.ethz.ch/mailman/listinfo/r-help)
 -   [RStudio Forum](https://community.rstudio.com/)
 -   The [Github](https://github.com/) repository for a specific package
--   [Datalab Office Hours](https://datalab.ucdavis.edu/office-hours/)
+-   [Datalab Office Hours](https://datalab.ucdavis.edu/office-hours/) if you are
+associated with the University or Medical Center
 
 ## 5. Fix the bug
 
