@@ -31,4 +31,5 @@ README.html
 /env/
 
 # data
-Data/
+data/
+*notes_for_debugging*
