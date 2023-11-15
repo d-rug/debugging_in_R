@@ -14,6 +14,26 @@ library(rnaturalearth)
 
 
 
+# Functions ---------------------------------------------------------------
+
+resample_combine = function(template, to_resample) {
+  #resample global layers to CA and to match climate model resolution
+  
+  #resample list
+  resampled = lapply(to_resample, resample, y=template)
+  
+  resampled[[length(to_resample)+1]] = template #add template layer
+  
+  all_layers = rast(resampled) #turn into one object
+  
+  #project to good crs for california
+  all_layers = project(all_layers, crs("ESRI:102008"))
+  
+  return(all_layers)
+  
+}
+
+
 #convert breaks to a list of labels where only the multiples of n are displayed
 scale_labels = function(n=5) {
   lab_fun = function(x) sapply(x, function(x) if (x %% n == 0) paste0(x) else '')
@@ -37,10 +57,18 @@ x_to_season_lab = as_labeller(x_to_season)
 
 # Get Data ----------------------------------------------------------------
 
+geodata_path('./data')
+
 #global precipitation data from worldclim
 #you can download by country but the resolution is forced to be 0.5
-prec = worldclim_global(var='prec', res=5, path='.')
+prec = cmip6_world(model='ACCESS-CM2', ssp='585', time='2061-2080', var='prec', res=5)
 names(prec) = month.name
+
+crops = cropland('worldcover')
+
+built = landcover('built')
+
+human = footprint()
 
 #outlines of US States
 usa_sf = ne_states(iso_a2 = 'us', returnclass = 'sf')
@@ -50,8 +78,6 @@ usa = vect(usa_sf)
 logo_fn = rast(system.file("ex/logo.tif", package="terra"))
 logo = rast(logo_fn) 
 
-#Albers Equal Area North American projection
-albers_NA = crs("ESRI:102008")
 
 #blue color palette function for plotting
 blues = colorRampPalette(brewer.pal(9, 'Blues'))
@@ -64,6 +90,17 @@ voi = c('name', 'type', 'region', 'postal')
 
 #removing extraneous data for easier plotting
 c_usa = usa[which(!usa$name %in% not_contiguous), voi]
+
+ca = usa[which(usa$name == 'California'), voi]
+
+
+# Human Precipitation in CA -----------------------------------------------
+
+prec_ca = crop(prec, ca)
+
+human_impact = list(crops, built, human)
+
+human_ca = resample_combine(prec_ca, human_impact)
 
 
 # Spatial comparison ------------------------------------------------------
@@ -103,6 +140,8 @@ if (usa_area > logo_area) {
 
 
 # Precipitation Seasonality in the United States --------------------------
+
+albers_NA = crs("ESRI:102008")
 
 nlyr(prec) #data is monthly
 
