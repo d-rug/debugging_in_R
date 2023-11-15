@@ -241,8 +241,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>head()</code></li>
 <li><code>str()</code></li>
 <li><code>View()</code></li>
+<li><code>dim()</code></li>
 <li><code>range()</code></li>
 <li><code>table()</code></li>
+<li><code>class()</code></li>
 </ul>
 </section>
 <section id="unit-tests" class="level3">
@@ -316,25 +318,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <section id="reprexes" class="level3">
 <h3 class="anchored" data-anchor-id="reprexes">Reprexes</h3>
-<p>Repr(oducible) ex(amples), are snippets of code that can be run by anyone, without any specialized data or software. Many times, the act of creating a reprex will help you debug your code.</p>
+<p>Repr(oducible) ex(amples), are <em>minimal</em> of code that trigger your bug and can be run by anyone, without any specialized data or software. Many times, the act of creating a reprex will help you debug your code.</p>
 <p>Remember to:</p>
 <ul>
-<li>Create the reprex in a separate script (or project)</li>
-<li>List all necessary to run your code</li>
-<li>Simulate data or provide an easily accessible small subset of your data</li>
-<li>Remove all extraneous code, like calls to <code>print()</code> and <code>head()</code></li>
+<li>Create the reprex in a separate script</li>
+<li>List all packages loaded in your environment</li>
+<li>Simulate data, use builtin data or provide an easily accessible small subset of your data (no csvs)</li>
+<li>Remove all extraneous packages and code</li>
 <li>Clear your environment/restart R before testing your reprex</li>
 <li>Test your reprex to make sure it triggers the error</li>
 <li>No Screenshots!</li>
 </ul>
-<p>For more detailed guidance asking good questions see the <a href="https://www.r-project.org/posting-guide.html">R Posting Guide</a></p>
+<p>For more detailed guidance on asking good questions see the <a href="https://www.r-project.org/posting-guide.html">R Posting Guide</a>. For tools to craft your reprex, there is a tidyverse package with the same name: <a href="https://reprex.tidyverse.org/">reprex</a></p>
 </section>
 </section>
 <section id="fix-the-bug" class="level1">
 <h1>5. Fix the Bug?</h1>
 <p>Sometimes fixing the bug is trivial once you have determined the cause. Other times, there is more work to do.</p>
 <ul>
-<li>Use <code>trace()</code> to modify problematic functions</li>
+<li><code>try()</code> and <code>tryCatch()</code></li>
 <li>Write your own functions that avoid the issue</li>
 <li>Report the bug
 <ul>
@@ -348,6 +350,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="pevent-the-bug" class="level1">
 <h1>6. Pevent the Bug</h1>
 <ul>
+<li><code>try()</code> and <code>tryCatch()</code></li>
 <li>Document, document, document!
 <ul>
 <li>#comments</li>
