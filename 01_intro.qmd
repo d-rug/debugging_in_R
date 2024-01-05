@@ -15,7 +15,7 @@ But most of the time it is computer code that did not produce the output you ant
 
 1.  Identify the bug
 
-2.  Locate (the cause of) the bug
+2.  Locate the bug
 
 3.  Investigate the bug
 
@@ -25,4 +25,4 @@ But most of the time it is computer code that did not produce the output you ant
 
 6.  Prevent prevent bug
 
-Not all of these steps will be relevant every time but some of them will always be relevant and sometimes you will need all of them
+Not all of these steps will be relevant every time, but some of them will always be relevant, and sometimes you will need all of them.
