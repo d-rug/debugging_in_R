@@ -21,15 +21,15 @@ However, many times there will be no error messages, you just have to figure out
 
 ```{r error=TRUE}
 
-x = c(1, 39, 2982, '5', 22)
-
 range(x)
 
 ```
 
 ## Strategies
 
-Develop expectations about what your data should look like and check them frequently, not just at the end of your process.
+Develop expectations about what your data should look like and check them 
+frequently, not just at the end of your process. Use investigative functions 
+to check your expectations. 
 
 ### Investigative functions
 
@@ -41,8 +41,9 @@ Develop expectations about what your data should look like and check them freque
 -   `range()`
 -   `table()`
 -   `class()`
+-   `is.na()`
 
-### Unit tests
+### Unit Tests
 
 Unit tests are outside the scope of this workshop but you can find more information via the [testthat](https://testthat.r-lib.org/) package.
 
@@ -50,25 +51,82 @@ Unit tests are outside the scope of this workshop but you can find more informat
 -   Typos/syntax errors
 -   Object is not the class that you think it is
 -   Column is not the type that you think it is
+-   File is not in the place that you think it is
 -   Columns missing from data
 -   Missing values (NAs) in the data 
 -   Reused variable names
+-   Mutually exclusive filtering criteria
 
 # 2. Locate the Bug
 
-- Start debugging with an empty environment
-- Run script interactively in the console and use investigative functions
-- print debugging
-- `debug()` and `debugonce()` 
-- `browser()` (+ `trace()`)
-- For rmarkdown/quarto
-  - break up larger chunks into smaller ones
-  - run code in console
-  
+Start debugging with an empty environment. This means you have restarted R, and
+haven't automatically loaded any data or restored your workspace using an 
+.RData file. You may need to uncheck an option in your global options menu.
+
+Run your script interactively in the console. This will 
+help identify the line of code where any errors occur. If your bug is not 
+accompanied by an error message, use investigative functions at each step in
+your script to figure at what step the problem originates.
+
+```{r error=TRUE}
+
+range(x)
+
+str(x)
+
+```
+
+In this case all of our values are strings, so R is sorting them as if they were
+words, not numbers.
+
+## Debugging Inside Functions
+
+If the bug is happening inside of a function, you have several options to 
+troubleshoot. If you wrote the function, you can add the function call
+`browser()` inside your function. `browser()` opens an interactive debugging 
+environment when called, allowing you to investigate what objects exist 
+in the local environment of your function. It also means you can run the
+lines of the code inside your function interactively. If you did not write the 
+offending function, you can use `debug()` to insert `browser()` as the first
+line of code of the function in question. Use `undebug()` to remove the  
+`browser()` function call when you are done. 
+
+For bugs where the problem is nested somewhere deep in a function that you may 
+or may not have access to, you can use the function `recover()` to enter a
+debugging session deep in the function call rabbit hole. By setting 
+
+```{r eval=FALSE}
+
+options(error=recover)
+
+```
+
+you will trigger `recover()` to run any time you hit an error. This will then
+allow you to select the evaluation environment level at which to run a debugging
+session (see below).
+
+## Non-interactive Debugging
+
+When running knitting/rendering notebooks, Rmarkdown and quarto notebooks
+provide the line numbers of the entire code chunk where the error occurred
+instead of the exact line number of the error. If you are struggling to identify
+where in a notebook an error occurs and running code in the console does not
+trigger the error, break your longer code chunks up into shorter ones. This will
+narrow down the number of lines of code you need to investigate.
+
+If you don't have *any* ability work with R interactively, 
+like in the case of a remote computing cluster, you can use the function 
+`dump.frames()` to create an R object called `last.dump` that contains
+information about the evaluation environment in question. In lieu of creating an
+R object, you can write that information to a file as well. You can even set 
+`options=dump.frames` if you want environment information every time you hit an
+error. 
+
+# 3. Investigate the Bug
+
+
 Sometimes simply locating the bug is enough to figure out how to solve it, like
 in the case of syntax errors. However, many times locating the bug is just the beginning...
-
-# 3. Investigate the bug
 
 When identifying the location of the bug is not enough to figure out how to fix
 it, it's time to go looking for help.
@@ -77,6 +135,9 @@ it, it's time to go looking for help.
 -   [RDocumentation.org](https://www.rdocumentation.org/)
 -   The [CRAN](https://cran.r-project.org/) page or [Github](https://github.com/) repository for a specific package
 -   Google
+-   [Rseek.org](https://rseek.org/), like google but only for R related info. 
+    Can be helpful if you are getting a lot of results on Google from other 
+    programming languages
 
 Tips for googling:
 
@@ -100,7 +161,8 @@ this through any number of forums, including but not limited to:
 
 Whenever you ask for help, important that you provide people all the information 
 they need to understand the problem, but not so much information that that 
-determining the problem becomes a slog. Enter the Reprex.
+determining the problem becomes a slog. Enter the 
+[Reprex](http://adv-r.had.co.nz/Reproducibility.html).
 
 When asking your question make sure you:
 
@@ -112,7 +174,9 @@ When asking your question make sure you:
 
 ### Reprexes 
 
-Repr(oducible) ex(amples), are *minimal* of code that trigger your bug and can be run by anyone, without any specialized data or software. Many times, the act of creating a reprex will help you debug your code.
+Repr(oducible) ex(amples), are *minimal* of code that trigger your bug and can
+be run by anyone, without any specialized data or software. Many times, the act
+of creating a reprex will help you debug your code.
 
 Remember to:
 

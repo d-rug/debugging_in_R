@@ -175,12 +175,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#strategies" id="toc-strategies" class="nav-link" data-scroll-target="#strategies">Strategies</a>
   <ul class="collapse">
   <li><a href="#investigative-functions" id="toc-investigative-functions" class="nav-link" data-scroll-target="#investigative-functions">Investigative functions</a></li>
-  <li><a href="#unit-tests" id="toc-unit-tests" class="nav-link" data-scroll-target="#unit-tests">Unit tests</a></li>
+  <li><a href="#unit-tests" id="toc-unit-tests" class="nav-link" data-scroll-target="#unit-tests">Unit Tests</a></li>
   </ul></li>
   <li><a href="#common-problems" id="toc-common-problems" class="nav-link" data-scroll-target="#common-problems">Common Problems</a></li>
   </ul></li>
-  <li><a href="#locate-the-bug" id="toc-locate-the-bug" class="nav-link" data-scroll-target="#locate-the-bug">2. Locate the Bug</a></li>
-  <li><a href="#investigate-the-bug" id="toc-investigate-the-bug" class="nav-link" data-scroll-target="#investigate-the-bug">3. Investigate the bug</a></li>
+  <li><a href="#locate-the-bug" id="toc-locate-the-bug" class="nav-link" data-scroll-target="#locate-the-bug">2. Locate the Bug</a>
+  <ul class="collapse">
+  <li><a href="#debugging-inside-functions" id="toc-debugging-inside-functions" class="nav-link" data-scroll-target="#debugging-inside-functions">Debugging Inside Functions</a></li>
+  <li><a href="#non-interactive-debugging" id="toc-non-interactive-debugging" class="nav-link" data-scroll-target="#non-interactive-debugging">Non-interactive Debugging</a></li>
+  </ul></li>
+  <li><a href="#investigate-the-bug" id="toc-investigate-the-bug" class="nav-link" data-scroll-target="#investigate-the-bug">3. Investigate the Bug</a></li>
   <li><a href="#reproduce-the-bug" id="toc-reproduce-the-bug" class="nav-link" data-scroll-target="#reproduce-the-bug">4. Reproduce the Bug</a>
   <ul class="collapse">
   <li><a href="#reprexes" id="toc-reprexes" class="nav-link" data-scroll-target="#reprexes">Reprexes</a></li>
@@ -224,16 +228,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>However, many times there will be no error messages, you just have to figure out that something isn’t right.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">39</span>, <span class="dv">2982</span>, <span class="st">'5'</span>, <span class="dv">22</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "1" "5"</code></pre>
 </div>
 </div>
 <section id="strategies" class="level2">
 <h2 class="anchored" data-anchor-id="strategies">Strategies</h2>
-<p>Develop expectations about what your data should look like and check them frequently, not just at the end of your process.</p>
+<p>Develop expectations about what your data should look like and check them frequently, not just at the end of your process. Use investigative functions to check your expectations.</p>
 <section id="investigative-functions" class="level3">
 <h3 class="anchored" data-anchor-id="investigative-functions">Investigative functions</h3>
 <ul>
@@ -245,10 +247,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>range()</code></li>
 <li><code>table()</code></li>
 <li><code>class()</code></li>
+<li><code>is.na()</code></li>
 </ul>
 </section>
 <section id="unit-tests" class="level3">
-<h3 class="anchored" data-anchor-id="unit-tests">Unit tests</h3>
+<h3 class="anchored" data-anchor-id="unit-tests">Unit Tests</h3>
 <p>Unit tests are outside the scope of this workshop but you can find more information via the <a href="https://testthat.r-lib.org/">testthat</a> package.</p>
 </section>
 </section>
@@ -258,36 +261,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Typos/syntax errors</li>
 <li>Object is not the class that you think it is</li>
 <li>Column is not the type that you think it is</li>
+<li>File is not in the place that you think it is</li>
 <li>Columns missing from data</li>
 <li>Missing values (NAs) in the data</li>
 <li>Reused variable names</li>
+<li>Mutually exclusive filtering criteria</li>
 </ul>
 </section>
 </section>
 <section id="locate-the-bug" class="level1">
 <h1>2. Locate the Bug</h1>
-<ul>
-<li>Start debugging with an empty environment</li>
-<li>Run script interactively in the console and use investigative functions</li>
-<li>print debugging</li>
-<li><code>debug()</code> and <code>debugonce()</code></li>
-<li><code>browser()</code> (+ <code>trace()</code>)</li>
-<li>For rmarkdown/quarto
-<ul>
-<li>break up larger chunks into smaller ones</li>
-<li>run code in console</li>
-</ul></li>
-</ul>
-<p>Sometimes simply locating the bug is enough to figure out how to solve it, like in the case of syntax errors. However, many times locating the bug is just the beginning…</p>
+<p>Start debugging with an empty environment. This means you have restarted R, and haven’t automatically loaded any data or restored your workspace using an .RData file. You may need to uncheck an option in your global options menu.</p>
+<p>Run your script interactively in the console. This will help identify the line of code where any errors occur. If your bug is not accompanied by an error message, use investigative functions at each step in your script to figure at what step the problem originates.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "1" "5"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> chr [1:5] "1" "39" "2982" "5" "22"</code></pre>
+</div>
+</div>
+<p>In this case all of our values are strings, so R is sorting them as if they were words, not numbers.</p>
+<section id="debugging-inside-functions" class="level2">
+<h2 class="anchored" data-anchor-id="debugging-inside-functions">Debugging Inside Functions</h2>
+<p>If the bug is happening inside of a function, you have several options to troubleshoot. If you wrote the function, you can add the function call <code>browser()</code> inside your function. <code>browser()</code> opens an interactive debugging environment when called, allowing you to investigate what objects exist in the local environment of your function. It also means you can run the lines of the code inside your function interactively. If you did not write the offending function, you can use <code>debug()</code> to insert <code>browser()</code> as the first line of code of the function in question. Use <code>undebug()</code> to remove the<br>
+<code>browser()</code> function call when you are done.</p>
+<p>For bugs where the problem is nested somewhere deep in a function that you may or may not have access to, you can use the function <code>recover()</code> to enter a debugging session deep in the function call rabbit hole. By setting</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">error=</span>recover)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>you will trigger <code>recover()</code> to run any time you hit an error. This will then allow you to select the evaluation environment level at which to run a debugging session (see below).</p>
+</section>
+<section id="non-interactive-debugging" class="level2">
+<h2 class="anchored" data-anchor-id="non-interactive-debugging">Non-interactive Debugging</h2>
+<p>When running knitting/rendering notebooks, Rmarkdown and quarto notebooks provide the line numbers of the entire code chunk where the error occurred instead of the exact line number of the error. If you are struggling to identify where in a notebook an error occurs and running code in the console does not trigger the error, break your longer code chunks up into shorter ones. This will narrow down the number of lines of code you need to investigate.</p>
+<p>If you don’t have <em>any</em> ability work with R interactively, like in the case of a remote computing cluster, you can use the function <code>dump.frames()</code> to create an R object called <code>last.dump</code> that contains information about the evaluation environment in question. In lieu of creating an R object, you can write that information to a file as well. You can even set <code>options=dump.frames</code> if you want environment information every time you hit an error.</p>
+</section>
 </section>
 <section id="investigate-the-bug" class="level1">
-<h1>3. Investigate the bug</h1>
+<h1>3. Investigate the Bug</h1>
+<p>Sometimes simply locating the bug is enough to figure out how to solve it, like in the case of syntax errors. However, many times locating the bug is just the beginning…</p>
 <p>When identifying the location of the bug is not enough to figure out how to fix it, it’s time to go looking for help.</p>
 <ul>
 <li>Built-in R documentation via <code>?</code> or <code>help()</code></li>
 <li><a href="https://www.rdocumentation.org/">RDocumentation.org</a></li>
 <li>The <a href="https://cran.r-project.org/">CRAN</a> page or <a href="https://github.com/">Github</a> repository for a specific package</li>
 <li>Google</li>
+<li><a href="https://rseek.org/">Rseek.org</a>, like google but only for R related info. Can be helpful if you are getting a lot of results on Google from other programming languages</li>
 </ul>
 <p>Tips for googling:</p>
 <ul>
@@ -307,7 +329,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><a href="https://community.rstudio.com/">RStudio Forum</a></li>
 <li>The <a href="https://github.com/">Github</a> repository for a specific package</li>
 </ul>
-<p>Whenever you ask for help, important that you provide people all the information they need to understand the problem, but not so much information that that determining the problem becomes a slog. Enter the Reprex.</p>
+<p>Whenever you ask for help, important that you provide people all the information they need to understand the problem, but not so much information that that determining the problem becomes a slog. Enter the <a href="http://adv-r.had.co.nz/Reproducibility.html">Reprex</a>.</p>
 <p>When asking your question make sure you:</p>
 <ul>
 <li>Have done your homework and exhausted your options from Step 3 first</li>
