@@ -20,8 +20,6 @@ Computer code not behaving as you *expect* it to
 ## Debugging Tasks
 
 ::: {style="font-size: 120%;"}
-
-
 1.  Identify the bug
 
 2.  Locate (the cause of) the bug
@@ -33,11 +31,9 @@ Computer code not behaving as you *expect* it to
 5.  Fix the bug
 
 6.  Prevent prevent bug
-
 :::
 
 ## Investigative Functions
-
 
 ::: {style="font-size: 90%;"}
 -   `print()`
@@ -73,8 +69,8 @@ Then, check those expectations (frequently)
 -   with unit tests ([testthat](https://testthat.r-lib.org/))
 
 ## Setting Expectations
-&nbsp;
 
+ 
 
 ### Expect no error message:
 
@@ -84,11 +80,9 @@ x = c(1, 39, 2982, '5', 22)
 
 sqrt(x)
 
-
-
 ```
 
-&nbsp;
+ 
 
 ### Expect numeric values:
 
@@ -135,7 +129,7 @@ range(x)
 
 # Reprex: Re(producible) Ex(ample)
 
-&nbsp;
+ 
 
 ::: {style="font-size: 150%;"}
 The smallest chunk of code that triggers your bug and can be run on any computer.
@@ -187,7 +181,8 @@ Of course there is a tidyverse package for that: [reprex](https://reprex.tidyver
 :::
 
 # An Example
-&nbsp;
+
+ 
 
 ::: {style="font-size: 125%;"}
 https://github.com/d-rug/debugging_in_R/blob/main/buggy_code.R
